@@ -1,0 +1,45 @@
+; Numer-> Number
+; calculates the positive answer to the
+; quadratic formula
+; given 1, -4, 4; expect 2
+
+(define (quadpos a b c)
+  (/
+   (+
+    (- 0 b)
+    (sqrt
+     (-
+      (sqr b)
+      (* 4 a c))))
+   (* 2 a)))
+
+;---------------------------------------------------------------------
+
+; Numer-> Number
+; calculates the negative answer to the
+; quadratic formula
+; given 1, -4, 4; expect -2
+
+(define (quadneg a b c)
+  (/
+   (-
+    (- 0 b)
+    (sqrt
+     (-
+      (sqr b)
+      (* 4 a c))))
+   (* 2 a)))
+
+;---------------------------------------------------------------------
+
+; Number -> String
+; combines the answers of the previous two functions
+; given 1, -4, 4; expect "-2 and 2"
+
+(define (quadratic a b c)
+  (string-append
+   (number->string
+    (quadneg a b c))
+   " "
+   (number->string
+    (quadpos a b c))))
